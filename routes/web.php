@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('bookingarsitek');
+});
+Route::get('/', function () {
+    return view('bookingdesignerinterior');
+});
+Route::get('/', function () {
+    return view('bookingpekerja');
 });
 
 Auth::routes();
