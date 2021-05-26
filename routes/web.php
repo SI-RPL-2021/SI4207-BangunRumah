@@ -23,6 +23,16 @@ Route::get('/', function () {
     return view('bookingpekerja');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('profile', function() {
+
+})->middleware('verified');
+
+Route::get('/home', 'HomeController@index')->name('home');
